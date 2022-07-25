@@ -8,7 +8,6 @@ from PIL import Image, ImageOps
 import tensorflow
 import numpy as np
 import pickle
-import tensorflow as tf
 from keras.preprocessing import image
 from keras.layers import GlobalMaxPooling2D
 from keras.applications.resnet import ResNet50,preprocess_input
