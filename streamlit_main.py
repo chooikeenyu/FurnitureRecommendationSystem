@@ -5,16 +5,11 @@ from keras.models import load_model
 import streamlit as st
 import os
 from PIL import Image, ImageOps
-import tensorflow
 import numpy as np
 import pickle
-from keras.preprocessing import image
-from keras.layers import GlobalMaxPooling2D
-from keras.applications.resnet import ResNet50,preprocess_input
+from keras.applications.resnet import preprocess_input
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
-from IPython.display import display
-from st_clickable_images import clickable_images
 
 st.title('Furniture Recommendation System')
 
