@@ -7,4 +7,4 @@ Pillow==9.2.0
 scikit_learn==1.1.1
 st_clickable_images==0.0.3
 streamlit==1.5.0
-
+gunicorn==20.1.0
