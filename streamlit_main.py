@@ -57,10 +57,10 @@ def save_upload_file(upload_file):
 
 
 def feature_extraction(img_path,model):
-    img = image.load_img(img_path, target_size=(224, 224)) #local database
-    #img = ImageOps.fit(img_path,(224,224), Image.ANTIALIAS) # cloud
-    #img_array = np.asarray(img) # cloud
-    img_array = image.img_to_array(img) #local database
+    #img = image.load_img(img_path, target_size=(224, 224)) #local database
+    img = ImageOps.fit(img_path,(224,224), Image.ANTIALIAS) # cloud
+    img_array = np.asarray(img) # cloud
+    #img_array = image.img_to_array(img) #local database
     expanded_img_array = np.expand_dims(img_array, axis=0)
     preprocessed_img = preprocess_input(expanded_img_array)
     preprocessed_img = preprocessed_img/255
@@ -764,12 +764,12 @@ if upload_file is not None:
     #display_image = Image.open(upload_file)
     #st.image(display_image)
 
-    save_upload_file(upload_file) #local database
-    features = feature_extraction(os.path.join("uploads", upload_file.name), model) #local database
+    #save_upload_file(upload_file) #local database
+    #features = feature_extraction(os.path.join("uploads", upload_file.name), model) #local database
 
 
-    #img = Image.open(upload_file) #clouds
-    #features = feature_extraction(img,model) #clouds
+    img = Image.open(upload_file) #clouds
+    features = feature_extraction(img,model) #clouds
 
     maxindex = features.argmax()
     maxvalues = np.max(features)
