@@ -2,7 +2,7 @@ keras
 matplotlib
 nltk
 numpy
-opencv_python
+opencv-python-headless
 pandas
 Pillow
 scikit_learn
