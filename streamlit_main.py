@@ -3,7 +3,6 @@ import pandas as pd
 from keras.models import load_model
 
 import streamlit as st
-import os
 from PIL import Image, ImageOps
 import numpy as np
 import pickle
@@ -11,17 +10,14 @@ from keras.applications.resnet import preprocess_input
 from nltk.corpus import stopwords
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
-from keras.preprocessing import image
 from collections import Counter
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import pairwise_distances
-from matplotlib import gridspec, pyplot as plt
+from matplotlib import pyplot as plt
 
 import seaborn as sns
 import re
-st.set_page_config(layout="wide")
+
 st.title('Furniture Recommendation System')
 
 feature_list_Bathroom = np.array(pickle.load(open('embeddings_Bathroom.pkl','rb')))
@@ -45,15 +41,6 @@ filenames_kitchen = pickle.load(open('filenames_Kitchen.pkl','rb'))
 filenames_Living = pickle.load(open('filenames_Living.pkl','rb'))
 filenames_Replace = pickle.load(open('filenames_Replace.pkl','rb'))
 model = load_model("imgaug_rmspropV2_Ortho_2.h5")
-
-
-def save_upload_file(upload_file):
-    try:
-        with open(os.path.join('uploads',upload_file.name),'wb') as f:
-            f.write(upload_file.getbuffer())
-        return 1
-    except:
-        return 0
 
 
 def feature_extraction(img_path,model):
