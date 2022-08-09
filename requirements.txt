@@ -8,4 +8,4 @@ Pillow
 scikit_learn
 seaborn
 streamlit
-tensorflow
+tensorflow-cpu
